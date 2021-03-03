@@ -3,80 +3,50 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Curso Ingreso UTN FRA</title>
-
-			<!--/estilos-->
-		<link rel="stylesheet" type="text/css" href="estilo.css">
-		<link rel="stylesheet" type="text/css" href="animacion.css">
-		<!--final de /estilos-->
-
-		<!--Lógica-Programación-->
 		<script type="text/javascript" src="cinco.js"></script>
-        <!--Final de Lógica-Programación -->
-		<link rel="icon" type="image/x-icon" href="favicon.ico">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 	</head>
 	<body>
+        <div class="container" >
+      <div class="alert alert-warning  " style="margin-top: 20px;margin-bottom: 20px;" role="alert">
+            <h4 class="alert-heading">Estadística</h4>
+            <p>Se requiere generar un sistema para realizar estadísticas sobre los egresados en la universidad. <br></p>
+            <hr>
+            <p class="mb-0">Si tenes alguna duda, consulta por <b> slack!! </b></p>
+        </div>
+        <div style="padding:20px 20px; background-color: #f8f9fa; ">
+            <h6>1.  El alumno deberá ingresar:</h6>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"> Nombre del alumno</li>
+                <li class="list-group-item">Carrera (Programación, Psicología, Diseño gráfico)</li>
+                <li class="list-group-item">Estado de la carrera: en curso-abandono-finalizado</li>
+                <li class="list-group-item">Sexo (femenino-masculino-nobinario)</li>
+                <li class="list-group-item">Edad (18 o más)</li>
+                <li class="list-group-item">Nota (entre 1 y 10)</li>
+            </ul>
 
+        </div>
+        <div style="padding: 0 20px 20px 20px; background-color: #f8f9fa; margin-bottom: 10px; ">
+            <h6>2.  Se desconoce la cantidad de alumnos que se ingresaran.</h6>
+            <h6>3.  Se deberán validar los casos resaltados en negrita. </h6>
+            <h6>4.  El programa deberá informar a través del documento html:</h6>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">A.  Cantidad total de alumnos de cada carrera.</li>
+                <li class="list-group-item">B.  Cantidad total de mujeres que cursan la carrera de programación</li>
+                <li class="list-group-item">C.  Cantidad de alumnos no binarios.</li>
+                <li class="list-group-item">D.  Promedio de notas de los alumnos finalizantes.</li>
+                <li class="list-group-item">E.  Nombre, sexo y edad del alumno mas viejo en la carrera de psicología.</li>
+                <li class="list-group-item">F.  Nombre, nota y estado de la carrera del mejor alumno no binario que estudia psicología.)</li>
+                <li class="list-group-item">G.  ¿Cuál es la carrera que tiene más alumnos?</li>
+            </ul>
+            
+        </div>
 
-<div class=" animated bounceIn header">
-     <a  class="MiBotonUTNnav" onclick="location.href='index.html'" ><i class="far fa-hand-point-left"></i>Men&uacute; ejercicios</a> 	
-</div>
-
-<div class="row">
-  <div class="col-3 col-s-3 menu">
-   
-  </div>
-
-  <div class="col-6 col-s-9">
-   	<form id="FormIngreso" class=" animated bounceInLeft">
-	   	<h1>Ingrese datos </h1>
-	   	<SELECT id="selecContinente">
-					<OPTION >America</OPTION>
-					<OPTION >África</OPTION>
-					<OPTION >Asia</OPTION>
-					<OPTION >Europa</OPTION>
-					<OPTION >Oceania</OPTION>
-		</SELECT>
-			<SELECT id="selecPago">
-					<OPTION >Débito</OPTION>
-					<OPTION >Crédito</OPTION>
-					<OPTION >Efectivo</OPTION>
-					<OPTION >MercadoPago</OPTION>
-					<OPTION >Cheque</OPTION>
-					<OPTION >Leliq</OPTION>
-				</SELECT>
-
-	   	<a  class="MiBotonUTNnav" onclick="mostrar()" >Mostrar  informaci&oacute;n</a>
-	 </form>
-  </div>
-
-  <div class="col-3 col-s-12">
-    <div class="aside animated bounceInUp">
-     <h2>Enunciado:</h2>
-						<h3>
-					Bienvenidos (SOLO SWITCH).
-        </br>Una empresa de viajes le solicita ingresar que continente le gustaria visitar
-    	</br>y la cantidad de días , la oferta dice que por día se cobra $100 , que se puede pagar de todas las maneras
-        </br>Si es América tiene un 15% de descuento y si ademas paga por débito se le agrega un 10% mas de descuento
-        </br>Si es África u Oceania tiene un 30% de descuento y si además paga por mercadoPago o efectivo se le agrega un 15% mas de descuento
-        </br>Si es Europa tiene un 20% de descuento y si ademas paga por débito se le agrega un 15% , por mercadoPago un 10% y cualquier otro medio 5%
-        </br>cualquier otro continente tiene un recargo del 20%
-    	</br> en cualquier continenete , si paga con cheque, se recarga un 15% de impuesto al cheque
- 
-      
-
-				</h3>
-     
-    </div>
-  </div>
-</div>
-
-<div class="footer">
-  
-  	
-  	<p>Curso de ingreso UTN FRA</p>
-</div>
-
-</body>
+        <button type="button" class="btn btn-primary " onclick="probarEjercicio()">Probar el ejercicio</button>
+        </div>
+        
+    </body>
 </html>

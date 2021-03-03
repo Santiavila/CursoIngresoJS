@@ -7,7 +7,16 @@ function mostrar()
 	contador=0;
 	acumulador=0;
 	
+	while(contador<5)
+	{
+		contador=contador+1;
+		numeroIngresado=prompt("Ingrese numero : #"+ contador);
+		numeroIngresado=parseInt(numeroIngresado);
+		acumulador=acumulador+numeroIngresado;
+	}
 	
+	promedio=acumulador/contador;
+
 	txtIdSuma.value=acumulador;
-	txtIdPromedio.value=acumulador/5;
+	txtIdPromedio.value=promedio;
 }//FIN DE LA FUNCIÓN
