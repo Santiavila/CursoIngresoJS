@@ -300,7 +300,7 @@ d)el tipo de mercadería  que mas aparece
 e)el porcentaje de productos elaborados por sobre el total
 f) el promedio de pesos por cada tipo ingresado
 */
-
+/*
 function probarEjercicio()
 {
 
@@ -500,4 +500,268 @@ function probarEjercicio()
     console.log("El promedio de pesos de nacionales es" + promedioNacional);
 
 
+}*/
+
+/*3- validación :
+pedir el ingreso de 10 mascotas 
+ validar 
+tipo ( gato , perro , pájaro y otros)solo esos cuatro tipo
+raza , si es perro (pastor, toy, callejero) y si gato (siamés, turco, Peterbald , generico) y  si es de tipo "otros" o pájaro , pedir solo un texto
+edad entre 1 y 20 para gatos y perros ,  para "otros" entre 1 y 100 , para pájaro 1 de 50
+nombre ( no se permite solo numero)
+mostrar por cada tipo el nombre del  mas viejo , solo si hay de ese tipo
+mostrar que raza  de gatos tiene mas animales y el promedio de edad de esta raza*/
+
+function probarEjercicio()
+{
+    var continuar;
+    var tipo;
+    var raza;
+    var edad;
+    var nombre;
+    var banderaGatoViejo;
+    var nombreGatoViejo;
+    var edadGatoViejo;
+    var banderaPerroViejo;
+    var nombrePerroViejo;
+    var edadPerroViejo;
+    var banderaPajaroViejo;
+    var nombrePajaroViejo;
+    var edadPajaroViejo;
+    var banderaOtroViejo;
+    var nombreOtroViejo;
+    var edadOtroViejo;
+    var cantSiames;
+    var sumaEdadSiames;
+    var cantTurco;
+    var sumaEdadTurco;
+    var cantPeterBald;
+    var sumaEdadPeterBald;
+    var cantGenerico;
+    var sumaEdadGenerico;
+    var mensaje;
+    var promedioEdad;
+
+    //asignar valor a variables
+    continuar=0;
+    banderaGatoViejo=0;
+    banderaPerroViejo=0;
+    banderaPajaroViejo=0;
+    banderaOtroViejo=0;
+    cantSiames=0;
+    sumaEdadSiames=0;
+    cantTurco=0;
+    sumaEdadTurco=0;
+    cantPeterBald=0;
+    sumaEdadPeterBald=0;
+    cantGenerico=0;
+    sumaEdadGenerico=0;
+
+    while(continuar < 4)
+    {
+
+    
+    //actualizo contador
+    continuar++;
+
+
+    tipo=prompt("Ingrese el tipo de mascota.");
+    while(isNaN(tipo) == false || tipo !="gato" && tipo !="perro" && tipo !="pajaro" && tipo !="otro")
+    {
+        tipo=prompt("ERROR, ingrese el tipo de mascota");
+    }
+
+   
+
+    switch(tipo)
+    {
+        case "perro":
+            raza=prompt("Ingrese el tipo de raza");
+            while(isNaN(raza) == false || raza != "pastor" && raza != "toy" && raza != "callejero")
+            {
+                raza=prompt("ERROR, ingrese la raza correcta (pastor, toy o callejero)");
+            }
+            edad=prompt("Ingrese la edad.");
+            edad=parseInt(edad);
+            while(isNaN(edad)==true || edad < 1 || edad > 20)
+            {
+                edad=prompt("ERROR, ingrese la edad correcta(1 a 20 años).");
+                edad=parseInt(edad);
+            }
+            if(banderaPerroViejo == 0)
+            {
+                nombrePerroViejo=nombre;
+                edadPerroViejo=edad;
+                banderaPerroViejo=1;
+            }
+            else
+            {
+                if(edad > edadPerroViejo)
+                {
+                    nombrePerroViejo=nombre;
+                    edadPerroViejo=edad;
+                    
+                 }
+            }
+            break;
+        case "gato":
+            raza=prompt("Ingrese el tipo de raza");
+            while(isNaN(raza) == false || raza != "siames" && raza != "turco" && raza != "peterbald" && raza != "generico")
+            {
+                raza=prompt("ERROR, ingrese la raza correcta (siames, turco, peterbald o genericoe)");
+            }
+            edad=prompt("Ingrese la edad.");
+            edad=parseInt(edad);
+            while(isNaN(edad)==true || edad < 1 || edad > 20)
+            {
+                edad=prompt("ERROR, ingrese la edad correcta(1 a 20 años).");
+                edad=parseInt(edad);
+            }
+            if(banderaGatoViejo == 0)
+            {
+                nombreGatoViejo=nombre;
+                edadGatoViejo=edad;
+                banderaGatoViejo=1;
+            }
+            else
+            {
+                if(edad > edadGatoViejo)
+                {
+                    nombrGatooViejo=nombre;
+                    edadGatoViejo=edad;
+                    
+                 }
+            }
+            switch(raza)
+            {
+                case "siames":
+                    cantSiames++;
+                    sumaEdadSiames+=edad;
+                    break;
+                case "turco":
+                    cantTurco++;
+                    sumaEdadTurco+=edad;
+                    break;
+                case "peterbald":
+                    cantPeterBald++;
+                    sumaEdadPeterBald+=edad;
+                    break;
+                case "generico":
+                    cantGenerico++;
+                    sumaEdadGenerico+=edad;
+                    break;
+            }
+            break;
+        case "otro":
+            edad=prompt("Ingrese la edad.");
+            edad=parseInt(edad);
+            while(isNaN(edad)==true || edad < 1 || edad > 100)
+            {
+                edad=prompt("ERROR, ingrese la edad correcta(1 a 100 años).");
+                edad=parseInt(edad);
+            }
+            if(banderaOtroViejo == 0)
+            {
+                nombreOtroViejo=nombre;
+                edadOtroViejo=edad;
+                banderaOtroViejo=1;
+            }
+            else
+            {
+                if(edad > edadOtroViejo)
+                {
+                    nombreOtroViejo=nombre;
+                    edadOtroViejo=edad;
+                    
+                 }
+            }
+            break;
+        case "pajaro":
+            edad=prompt("Ingrese la edad.");
+            edad=parseInt(edad);
+            while(isNaN(edad)==true || edad < 1 || edad > 50)
+            {
+                edad=prompt("ERROR, ingrese la edad correcta(1 a 50).");
+                edad=parseInt(edad);
+            }
+            if(banderaPajaroViejo == 0)
+            {
+                nombrePajaroViejo=nombre;
+                edadPajaroViejo=edad;
+                banderPajaroViejo=1;
+            }
+            else
+            {
+                if(edad > edadPajaroViejo)
+                {
+                    nombrePajaroViejo=nombre;
+                    edadPajaroViejo=edad;
+                    
+                 }
+            }
+            break;
+    
+    }
+         //nombre 
+                
+    nombre=prompt("Ingrese el nombre.");
+    while(isNaN(nombre)==false)
+    {
+        nombre=prompt("ERROR, ingrese el nombre correctamente.");
+    }
+            if(cantTurco > cantPeterBald && cantTurco > cantGenerico && cantTurco > cantSiames)
+            {
+                promedioEdad = sumaEdadTurco/cantTurco;
+                mensaje="Turco";
+            }
+            else
+            {
+                if(cantPeterBald > cantGenerico & cantPeterBald > cantSiames)
+                {
+                    promedioEdad = sumaEdadPeterBald/cantPeterBald;
+                    mensaje="PeterBald";
+                }
+                else
+                {
+                    if(cantSiames > cantGenerico)
+                    {
+                        promedioEdad = sumaEdadSiames/cantSiames;
+                        mensaje="Siames";
+                    }
+                    else{
+                        promedioEdad = sumaEdadGenerico/cantGenerico;
+                        mensaje="Generico";
+                        }
+                }
+            }
+            
+            
+
+    }
+    
+    console.log("El nombre del mas viejo del tipo perro " + nombrePerroViejo + " con una edad de " + edadPerroViejo);
+    console.log("El nombre del mas viejo del tipo gato " + nombreGatoViejo + " con una edad de " + edadGatoViejo);
+    if(banderaPajaroViejo)
+    {
+        console.log("El nombre del mas viejo del tipo pajaro " + nombrePajaroViejo + " con una edad de " + edadPajaroViejo);
+    }else{
+        console.log("No han sido ingresado pajaros");
+    }
+    
+    console.log("El nombre del mas viejo del tipo otro " + nombreOtroViejo + " con una edad de " + edadOtroViejo);
+    console.log("La raza que tiene mas gatos es: " + mensaje + "y su promedio de edad es: " + promedioEdad);
+
+
+
+
 }
+
+/*3- validación :
+pedir el ingreso de 10 mascotas 
+ validar 
+tipo ( gato , perro , pájaro y otros)solo esos cuatro tipo
+raza , si es perro (pastor, toy, callejero) y si gato (siamés, turco, Peterbald , generico) y  si es de tipo "otros" o pájaro , pedir solo un texto
+edad entre 1 y 20 para gatos y perros ,  para "otros" entre 1 y 100 , para pájaro 1 de 50
+nombre ( no se permite solo numero)
+mostrar por cada tipo el nombre del  mas viejo , solo si hay de ese tipo
+mostrar que raza  de gatos tiene mas animales y el promedio de edad de esta raza*/
